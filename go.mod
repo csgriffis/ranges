@@ -1,4 +1,4 @@
-module ranges
+module github.com/csgriffis/ranges
 
 go 1.21
 
