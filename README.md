@@ -5,7 +5,7 @@ Given a list of integers, it will return a list of ranges.
 
 ## Installation
 ```shell
-$ go install github.com/csgriffis/ranges
+$ go install github.com/csgriffis/ranges@latest
 ```
 
 ## Usage
