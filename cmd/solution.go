@@ -13,10 +13,6 @@ func Solution(input []int) []string {
 		return ranges
 	}
 
-	if len(input) == 1 {
-		return []string{fmt.Sprintf("%d", input[0])}
-	}
-
 	// sort input to improve iterations needed to find ranges
 	// Space: O(n)
 	// Time (worst case): O(n (log n)(log n))
