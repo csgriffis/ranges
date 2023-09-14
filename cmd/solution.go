@@ -33,37 +33,43 @@ func Solution(input []int) []string {
 
 	var r []int
 	for _, n := range input {
-		// start first range
 		if len(r) == 0 {
+			// add range start
 			r = append(r, n)
 			continue
 		}
 
 		if len(r) == 1 {
-			// extend current range
+			// ignore duplicate number
+			if n == r[0] {
+				continue
+			}
+
+			// add range end
 			if n == r[0]+1 {
 				r = append(r, n)
-				continue
-			} else {
-				// close range
-				ranges = append(ranges, rangeToString(r))
-				// reset range
-				r = []int{n}
 				continue
 			}
 		}
 
 		if len(r) == 2 {
+			// ignore duplicate number
+			if n == r[1] {
+				continue
+			}
+
+			// extend range end
 			if n == r[1]+1 {
-				// extend current range
 				r[1] = n
-			} else {
-				// close range
-				ranges = append(ranges, rangeToString(r))
-				// reset range
-				r = []int{n}
+				continue
 			}
 		}
+
+		// close range
+		ranges = append(ranges, rangeToString(r))
+
+		// reset range
+		r = []int{n}
 	}
 
 	// handle last range
